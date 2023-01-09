@@ -3,15 +3,17 @@ const mongoose = require("mongoose")
 const router = require('./routes/bike')
 var app = express()
 //Route
-app.get('/',function(req,res){
-  res.send('hello world')
-})
+// app.get('/',function(req,res){
+//   res.send('hello world')
+// })
 
 app.get('/get', function(res, res){
     res.send("i am nitish")
 })
 
 app.use('/bike', router)
+// app.use('/bike', router)
+// app.use()
 //MongoDB connection
 mongoose.connect('mongodb+srv://nitish:W0h25wxEKZPWOK1F@cluster0.6xn93jl.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true});
 mongoose.connection.once('open',function(){
