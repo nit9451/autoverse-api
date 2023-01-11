@@ -2,9 +2,11 @@ const Bike = require('../models/bike')
 const mongoose = require('mongoose');
 const bike = require('../models/bike');
 function create(req,res,next){
+  console.log("bikeeeee", req.file);
+
   let bikeName = req.body.bikeName;
   let description = req.body.description;
-  let image = req.body.image;
+  let image = req.file;
   let price = req.body.price
   let bike = new Bike({
     bikeName,
@@ -12,6 +14,7 @@ function create(req,res,next){
     image,
     description
   })
+
   bike.save().then((data)=>{
     res.send(data)
   })

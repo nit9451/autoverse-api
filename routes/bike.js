@@ -5,9 +5,12 @@ const view = require('../controller/bike')
 const update = require('../controller/bike')
 const remove = require('../controller/bike')
 const bodyparser = require('body-parser');
+const multer  = require('multer')
+const upload = multer({ dest: 'uploads/' })
 
 router.use(bodyparser.json())
-router.post('/create',create.create)
+// router.use(bodyparser.urlencoded({extended:true}));
+router.post('/create', upload.single('image'), create.create)
 router.get('/', view.view)
 router.patch('/:id', update.update)
 router.delete('/delete/:id', remove.remove)

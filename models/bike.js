@@ -2,19 +2,19 @@ const mongoose = require('mongoose')
 const bikeSchema = new mongoose.Schema({
   bikeName: {
     type: String,
-    required: true
+    required: false
   },
   image:{
-    type: String,
-    required: true
+    type: Object,
+    required: false
   },
   price: {
     type: String,
-    required: true
+    required: false
   },
   description: {
    type: String,
-   required: true
+   required: false
   },
 })
 module.exports = mongoose.model('bike', bikeSchema)
