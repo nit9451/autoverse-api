@@ -4,14 +4,15 @@ var app = express()
 const token = require("jsonwebtoken")
 const cors = require("cors")
 const bodyParser = require('body-parser')
+const verifyToken = require('./verifyToken')
 
 //Route
 // app.get('/',function(req,res){
 //   res.send('hello world')
 // })
 
-var toke = token.sign({name :"nitish"},"qwerty")
-console.log("t", toke);
+// var toke = token.sign({name :"nitish"},"qwerty")
+// console.log("t", toke);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 const router = require('./routes/bike')
